@@ -33,3 +33,20 @@ List<Coin> coinList = [
       percentChange: '-13.55',
       isPositive: false)
 ];
+var data = [
+  0.8,
+  1.0,
+  1.2,
+  0.7,
+  1.25,
+  1.2,
+  0.3,
+  1.3,
+  1.1,
+  0.0,
+  1.2,
+  0.7,
+  1.25,
+  1.2,
+  0.6
+];

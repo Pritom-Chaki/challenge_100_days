@@ -8,10 +8,10 @@ class BitCoinWallet extends StatefulWidget {
 }
 
 class _BitCoinWalletState extends State<BitCoinWallet> {
-  var data = [0.8, 1.0, 1.2, 1.1, 1.25, 1.2, 1.3, 1.1];
   Widget _buildCard() {
     return //Container of top Card
         Card(
+      margin: EdgeInsets.symmetric(vertical: 10.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
@@ -120,10 +120,11 @@ class _BitCoinWalletState extends State<BitCoinWallet> {
           ],
         ),
         Card(
+          margin: EdgeInsets.only(bottom: 20.0),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
             child: Column(
               children: [
                 Row(
@@ -166,26 +167,25 @@ class _BitCoinWalletState extends State<BitCoinWallet> {
                   children: [
                     Sparkline(
                       data: data,
-                      lineColor: Colors.amber,
+                      lineColor: Colors.amberAccent,
                       pointsMode: PointsMode.last,
                       pointSize: 12.0,
-                      pointColor: Colors.amberAccent,
+                      pointColor: Colors.amber,
                       sharpCorners: true,
                       fillMode: FillMode.below,
                       fillColor: Colors.pink[50],
-                      fallbackHeight: 80,
+                      fallbackHeight: 100,
                     ),
                     Positioned(
                       bottom: 5.0,
-                      left: 40.0,
+                      left: 10.0,
                       child: Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
-                          Icon(Icons.circle,
-                              size: 12, color: Colors.amberAccent),
-                          SizedBox(width: 10.0),
+                          Icon(Icons.circle, size: 12, color: Colors.amber),
+                          SizedBox(width: 8.0),
                           Text(
-                            'Lower: \$4.895',
+                            '1 BTC = \$5,483',
                             style: TextStyle(color: Colors.black),
                           )
                         ],
@@ -210,13 +210,13 @@ class _BitCoinWalletState extends State<BitCoinWallet> {
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: Container(
-            height: 80,
-            width: 120,
+            height: 90,
+            width: 140,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(12.0),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
@@ -227,7 +227,7 @@ class _BitCoinWalletState extends State<BitCoinWallet> {
                     '\$',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 22,
                         fontWeight: FontWeight.w600),
                   ),
                 ),
@@ -241,13 +241,13 @@ class _BitCoinWalletState extends State<BitCoinWallet> {
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: Container(
-            height: 80,
-            width: 120,
+            height: 90,
+            width: 140,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(12.0),
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
@@ -258,7 +258,7 @@ class _BitCoinWalletState extends State<BitCoinWallet> {
                     '\$',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 22,
                         fontWeight: FontWeight.w600),
                   ),
                 ),
@@ -276,10 +276,15 @@ class _BitCoinWalletState extends State<BitCoinWallet> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading:
-            Icon(Icons.arrow_back_ios_outlined, color: Colors.grey, size: 30),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon:
+              Icon(Icons.arrow_back_ios_outlined, color: Colors.grey, size: 24),
+        ),
         title: Text(
-          ' Bitcoin Wallets',
+          ' Bitcoin Wallet',
           style: TextStyle(color: Colors.black87, fontSize: 26),
         ),
         centerTitle: true,
@@ -287,7 +292,7 @@ class _BitCoinWalletState extends State<BitCoinWallet> {
           Icon(
             Icons.more_vert,
             color: Colors.grey,
-            size: 32,
+            size: 26,
           ),
           SizedBox(width: 15.0),
         ],

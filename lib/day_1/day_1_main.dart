@@ -28,21 +28,21 @@ class _Day1MainState extends State<Day1Main> {
               children: [
                 Container(
                   padding: EdgeInsets.all(5.0),
-                  decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.black54),
                   child: Icon(Icons.account_balance_wallet,
                       color: Colors.white, size: 28),
                 ),
                 Text(
                   'Total Wallet Balance',
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black54),
+                      color: Colors.black.withOpacity(0.7)),
                 ),
                 DropdownButton<String>(
                   value: dropdownValue,
-                  icon: const Icon(Icons.keyboard_arrow_down_outlined,
+                  icon: Icon(Icons.keyboard_arrow_down_outlined,
                       color: Colors.grey),
                   iconSize: 18,
                   elevation: 1,
@@ -63,6 +63,7 @@ class _Day1MainState extends State<Day1Main> {
                 ),
               ],
             ),
+            SizedBox(height: 5.0),
             //Card Middle Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,7 +73,8 @@ class _Day1MainState extends State<Day1Main> {
                   children: [
                     Text(
                       '\$39.584',
-                      style: TextStyle(fontSize: 38, color: Colors.black54),
+                      style: TextStyle(
+                          fontSize: 38, color: Colors.black.withOpacity(0.7)),
                     ),
                     Text(
                       '7.251332 BTC',
@@ -82,7 +84,7 @@ class _Day1MainState extends State<Day1Main> {
                 ),
                 //Ridgt side column
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 3.0),
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
                   decoration: BoxDecoration(
                     color: Colors.green,
                     borderRadius: BorderRadius.circular(10.0),
@@ -198,7 +200,7 @@ class _Day1MainState extends State<Day1Main> {
             color: Colors.grey,
             size: 36,
           ),
-          SizedBox(width: 20.0),
+          SizedBox(width: 10.0),
         ],
       ),
       bottomNavigationBar: BottomNavBar(),
@@ -209,13 +211,21 @@ class _Day1MainState extends State<Day1Main> {
             children: [
               _buildCard(),
               _buildMidleLine(),
-              _buildCoinCard(
-                  url: coinList[0].imgUrl,
-                  value1: coinList[0].coinValue,
-                  value2: coinList[0].dollarValue,
-                  value3: coinList[0].presentValue,
-                  value4: coinList[0].percentChange,
-                  value5: coinList[0].isPositive),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BitCoinWallet()),
+                  );
+                },
+                child: _buildCoinCard(
+                    url: coinList[0].imgUrl,
+                    value1: coinList[0].coinValue,
+                    value2: coinList[0].dollarValue,
+                    value3: coinList[0].presentValue,
+                    value4: coinList[0].percentChange,
+                    value5: coinList[0].isPositive),
+              ),
               _buildCoinCard(
                   url: coinList[1].imgUrl,
                   value1: coinList[1].coinValue,

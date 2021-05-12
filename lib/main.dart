@@ -2,6 +2,7 @@ import 'package:challenge_100_days/day_1/day_1.dart';
 import 'package:flutter/material.dart';
 
 import 'day_2/day_2.dart';
+import 'day_3/day_3.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LessonPage(),
+      home: Day3Main(),
     );
   }
 }

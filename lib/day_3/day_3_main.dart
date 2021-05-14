@@ -90,8 +90,8 @@ class _Day3MainState extends State<Day3Main> {
   Widget _buildContainer() {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 20.0),
-      padding: EdgeInsets.only(top: 40.0, left: 15.0, right: 15.0),
+      margin: EdgeInsets.only(top: 40.0),
+      padding: EdgeInsets.only(top: 80.0, left: 15.0, right: 15.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0)),
@@ -215,43 +215,84 @@ class _Day3MainState extends State<Day3Main> {
               )
             ],
           ),
-        )
+        ),
+        SizedBox(height: 500)
       ]),
+    );
+  }
+
+  Widget _buildColumn({String text1, text2}) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Text(text1,
+            style: fontStyleMethod(TextStyle(
+                fontSize: 14,
+                color: Colors.black,
+                fontWeight: FontWeight.bold))),
+        Text(text2,
+            style: fontStyleMethod(TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+                fontWeight: FontWeight.bold))),
+      ],
+    );
+  }
+
+  Widget _buildTopBox() {
+    return Align(
+      alignment: Alignment.center,
+      child: Card(
+        elevation: 5.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        margin: EdgeInsets.symmetric(horizontal: 15.0),
+        child: Container(
+          height: 90,
+          width: MediaQuery.of(context).size.width * .89,
+          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildColumn(text1: 'Balance', text2: '\$ 18'),
+              _buildColumn(text1: 'Rewards', text2: '\$ 10.25'),
+              _buildColumn(text1: 'Total Trips', text2: '189'),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 40.0),
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        color: Challenge.color('3A9EC1'),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildTopRow(),
-            _buildSearchBox(),
-            Container(
-              color: Challenge.color('3A9EC1'),
-              child: Stack(
-                children: [
-                  _buildContainer(),
-                  Positioned(
-                    top: -10,
-                    child: Container(
-                      height: 90,
-                      margin: EdgeInsets.symmetric(horizontal: 15.0),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 10.0),
-                      color: Colors.red,
-                    ),
-                  )
-                ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 40.0),
+          //  height: double.infinity,
+          width: MediaQuery.of(context).size.width,
+
+          color: Challenge.color('3A9EC1'),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildTopRow(),
+              _buildSearchBox(),
+              Container(
+                // margin: EdgeInsets.symmetric(vertical: 20.0),
+
+                color: Challenge.color('3A9EC1'),
+                child: Stack(
+                  children: [
+                    _buildContainer(),
+                    _buildTopBox(),
+                  ],
+                ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );

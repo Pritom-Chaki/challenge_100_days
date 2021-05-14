@@ -40,8 +40,9 @@ class _Day3MainState extends State<Day3Main> {
           ],
         ),
         CircleAvatar(
-          radius: 24,
-          backgroundColor: Colors.white,
+          radius: 24.0,
+          backgroundImage: NetworkImage('https://via.placeholder.com/150'),
+          backgroundColor: Colors.transparent,
         )
       ]),
     );
@@ -268,6 +269,16 @@ class _Day3MainState extends State<Day3Main> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home, size: 32), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person, size: 32), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.location_on, size: 32), label: ''),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 40.0),

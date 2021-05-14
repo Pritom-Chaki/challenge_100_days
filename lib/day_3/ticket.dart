@@ -180,9 +180,9 @@ class _TicketPageState extends State<TicketPage> {
                     color: Colors.white,
                     fontWeight: FontWeight.bold))),
             Positioned(
-              top: 200,
+              bottom: 0,
               child: Container(
-                height: 200,
+                // height: 200,
                 width: MediaQuery.of(context).size.width,
                 padding: EdgeInsets.only(top: 120.0, left: 15.0, right: 15.0),
                 decoration: BoxDecoration(
@@ -198,11 +198,108 @@ class _TicketPageState extends State<TicketPage> {
                             fontSize: 22,
                             color: Colors.black,
                             fontWeight: FontWeight.bold))),
+                    SizedBox(height: 5.0),
                     Text('Enter Amount',
                         style: fontStyleMethod(TextStyle(
                             fontSize: 16,
                             color: Colors.black.withOpacity(0.7),
                             fontWeight: FontWeight.bold))),
+                    SizedBox(height: 10.0),
+                    Container(
+                      height: 40.0,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.blue.withOpacity(0.15)),
+                      child: Row(
+                        children: [
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.attach_money,
+                                color: Colors.black,
+                                size: 16,
+                              )),
+                          Expanded(
+                            child: TextField(
+                              maxLines: 1,
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: '5.0',
+                                  hintStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 15.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 10.0),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              color: Challenge.color('3A9EC1')),
+                          child: Text('Credit Card',
+                              style: fontStyleMethod(TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold))),
+                        ),
+                        Text('Balance: \$ 84',
+                            style: fontStyleMethod(TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold))),
+                      ],
+                    ),
+                    Divider(height: 20.0, thickness: 1.5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 10.0),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              color: Colors.blue.withOpacity(0.15)),
+                          child: Text('E-Wallet     ',
+                              style: fontStyleMethod(TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold))),
+                        ),
+                        Text('Balance: \$ 18',
+                            style: fontStyleMethod(TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold))),
+                      ],
+                    ),
+                    SizedBox(height: 20.0),
+                    Center(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 15.0, vertical: 5.0),
+                        width: MediaQuery.of(context).size.width * .75,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
+                            color: Challenge.color('3A9EC1')),
+                        child: Center(
+                          child: Text('Buy Ticket',
+                              style: fontStyleMethod(TextStyle(
+                                  fontSize: 32,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold))),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 70,
+                    )
                   ],
                 ),
               ),

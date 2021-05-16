@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'day_2/day_2.dart';
 import 'day_3/day_3.dart';
 import 'day_4/day_4.dart';
+import 'day_5/day_5.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Day4Profile(),
+      home: Day5NowPlaying(),
     );
   }
 }
